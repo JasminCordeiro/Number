@@ -6,6 +6,7 @@
     <title>What is the number?</title>
     
     <script src="/node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="/node_modules/sweetalert2/dist/sweetalert2.min.css">
 </head>
 <body>
     <script>
@@ -16,7 +17,7 @@
 swal("Digite um número de 1 a 10:",{
     content:{
         element:"input",
-        attributes:{
+        attributes:{ 
             type: "number",
         }
     }
