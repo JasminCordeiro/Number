@@ -10,38 +10,39 @@
 </head>
 <body>
     <script>
-        function gerarNumeroAleatorio(){
-        return Math.floor(Math.random() * 10 ) + 1;
-}
-
-swal("Digite um número de 1 a 10:",{
-    content:{
-        element:"input",
-        attributes:{ 
-            type: "number",
+        function gerarNumeroAleatorio() {
+            return Math.floor(Math.random() * 10) + 1;
         }
-    }
-}).then((value)=>{
 
-    var numeroUsuario = parseInt(value);
+        swal("Digite um número de 1 a 10:", {
+            content: {
+                element: "input",
+                attributes: { 
+                    type: "number",
+                    min: 0,
+                    max: 10,
+                }
+            }
+        }).then((value) => {
+            var numeroUsuario = parseInt(value);
+            var numeroAleatorio = gerarNumeroAleatorio();
 
-    var numeroAleatorio = gerarNumeroAleatorio();
-
-    if(numeroUsuario === numeroAleatorio){
-        swal("Parabens", "Você acertou!", "sucess").then(() => {
-            setTimeout(() =>{
-        location.reload();
-        }, 2000);
-    });
-    }else{
-        swal("Você errou!", "O número correto era " + numeroAleatorio + ".", "error").then(() => {
-            setTimeout(() =>{
-        location.reload();
-        }, 2000);
-    });
-    }
-});
+            if (numeroUsuario === numeroAleatorio) {
+                swal("Parabens", "Você acertou!", "success").then(() => {
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1000);
+                });
+            } else {
+                swal("Você errou!", "O número correto era " + numeroAleatorio + ".", "error").then(() => {
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1000);
+                });
+            }
+        }).catch(() => {
+            swal("Erro", "Por favor, digite um número entre 1 e 10.", "error");
+        });
     </script>
-   
 </body>
 </html>
