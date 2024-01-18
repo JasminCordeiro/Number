@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What is the number?</title>
     
+    <link rel="stylesheet" href="/style.css">
     <script src="/node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="/node_modules/sweetalert2/dist/sweetalert2.min.css">
 </head>
 <body>
+    <div class="content">
     <script>
         function gerarNumeroAleatorio() {
             return Math.floor(Math.random() * 10) + 1;
@@ -44,5 +46,6 @@
             swal("Erro", "Por favor, digite um número entre 1 e 10.", "error");
         });
     </script>
+    </div>
 </body>
 </html>
