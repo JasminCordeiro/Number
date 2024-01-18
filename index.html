@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is the number?</title>
+    <script src="/node_modules/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <script>
+        function gerarNumeroAleatorio(){
+        return Math.floor(Math.random() * 10 ) + 1;
+}
+
+swal("Digite um número de 1 a 10:",{
+    content:{
+        element:"input",
+        attributes:{
+            type: "number",
+        }
+    }
+}).then((value)=>{
+
+    var numeroUsuario = parseInt(value);
+
+    var numeroAleatorio = gerarNumeroAleatorio();
+
+    if(numeroUsuario === numeroAleatorio){
+        swal("Parabens", "Você acertou!", "sucess").then(() => {
+            setTimeout(() =>{
+        location.reload();
+        }, 2000);
+    });
+    }else{
+        swal("Você errou!", "O número correto era " + numeroAleatorio + ".", "error").then(() => {
+            setTimeout(() =>{
+        location.reload();
+        }, 2000);
+    });
+    }
+});
+    </script>
+   
+</body>
+</html>
